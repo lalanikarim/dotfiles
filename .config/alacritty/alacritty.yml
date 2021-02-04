@@ -1,0 +1,38 @@
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+
+  padding:
+    x: 10
+    y: 10
+
+  title: Alacritty
+
+  dynamic_title: true
+
+font:
+  normal:
+    family: FiraMono Nerd Font Mono      
+
+    style: Regular
+
+  bold:
+    style: Bold
+
+  italic:
+    style: Italic
+
+  bold_italic:
+    style: Bold Italic
+
+  size: 12.0
+
+background_opacity: 0.95
+
+shell:
+  program: /bin/bash
+  args:
+    - -l
+    - -c
+    - "tmux attach-session || tmux new-session"
