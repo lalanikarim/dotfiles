@@ -29,7 +29,7 @@ eval "$(starship init bash)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-[ -d "`npm -g bin`" ] && export PATH=`npm -g bin`:"$PATH"
+#[ -d "`npm -g bin`" ] && export PATH=`npm -g bin`:"$PATH"
 
 . ~/.cargo/env
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
@@ -42,3 +42,9 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
 [ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -f ~/.local/bin/az.completion.sh ] && . ~/.local/bin/az.completion.sh || true
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+ tmux
+fi
