@@ -6,7 +6,6 @@
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-export EDITOR="vim"
 
 alias open=xdg-open
 [[ -d $HOME/Android/Sdk/platform-tools ]] && export PATH=$HOME/Android/Sdk/platform-tools:"$PATH"
@@ -16,13 +15,23 @@ alias open=xdg-open
 #[[ -d /usr/lib/dart/bin ]] && export PATH="$PATH":/usr/lib/dart/bin
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.local/bin"
+export PATH="$PATH":"$HOME/go/bin"
+export PATH="$PATH":"$HOME/.yarn/bin"
+export PATH="$PATH:/home/karim/dotnet"
+export PATH="$PATH:/home/karim/.dotnet/tools"
 export PATH="$PATH:/home/karim/.local/share/coursier/bin"
 #alias largefolders="du . -h -d 1 | grep \"[0-9]G\""
 #alias largefiles="ls -lah | grep \"[0-9]G\""
 alias largefiles='ls -lah | grep "[0-9]G"'
 alias largefolders='du . -h -d 1 | grep "[0-9]G"'
-alias vim='~/Apps/nvim.appimage' # -u ~/.config/nvim-nightly/init.vim'
-alias tmux='tmux attach || tmux'
+#alias vim='~/Apps/nvim.appimage' # -u ~/.config/nvim-nightly/init.vim'
+alias nvim='~/Apps/nvim.appimage'
+alias vim='nvim'
+#alias tmuxattach='tmux attach || tmux'
+alias tmuxattach='tmux attach -t default || tmux new -s default'
+alias email="tmux rename-window email && mutt -e \"push '<f10>'\""
+alias calendar="tmux rename-window calendar && khal interactive"
+export EDITOR=~/Apps/nvim.appimage
 
 eval "$(starship init bash)"
 
@@ -39,12 +48,21 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
 
 # tabtab source for packages
 # uninstall by removing these lines
-[ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
+#[ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f ~/.local/bin/az.completion.sh ] && . ~/.local/bin/az.completion.sh || true
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
- tmux
-fi
+#alias kubectl="microk8s kubectl"
+#alias helm="/var/snap/microk8s/current/bin/helm3"
+export KUBECONFIG=~/.kube/config
+source <(kubectl completion bash)
+source <(helm completion bash)
+
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#  tmux attach -t default || tmux new -s default
+#fi
+
