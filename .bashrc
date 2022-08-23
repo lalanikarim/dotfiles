@@ -17,15 +17,22 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.local/bin"
 export PATH="$PATH":"$HOME/go/bin"
 export PATH="$PATH":"$HOME/.yarn/bin"
+export PATH="$PATH":"$HOME/dotnet"
+export PATH="$PATH":"$HOME/.dotnet/tools"
 export PATH="$PATH":"$HOME/.local/share/coursier/bin"
 export PATH="$PATH":"$HOME/elixir/bin"
+#alias largefolders="du . -h -d 1 | grep \"[0-9]G\""
+#alias largefiles="ls -lah | grep \"[0-9]G\""
 alias largefiles='ls -lah | grep "[0-9]G"'
 alias largefolders='du . -h -d 1 | grep "[0-9]G"'
+#alias vim='~/Apps/nvim.appimage' # -u ~/.config/nvim-nightly/init.vim'
 alias nvim='~/Apps/nvim.appimage'
 alias vim='nvim'
+#alias tmuxattach='tmux attach || tmux'
 alias tmuxattach='tmux attach -t default || tmux new -s default'
 alias email="tmux rename-window email && mutt -e \"push '<f10>'\""
 alias calendar="tmux rename-window calendar && khal interactive"
+alias docker-compose=podman-compose
 export EDITOR=~/Apps/nvim.appimage
 
 eval "$(starship init bash)"
@@ -56,5 +63,10 @@ source <(flutter bash-completion)
 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
-export PATH=$PATH:$HOME.dotnet/tools
 export TERM=xterm-256color-italic
+
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#  tmux attach -t default || tmux new -s default
+#fi
+
+[ -f ~/.local/bin/yq ] && source <(yq shell-completion bash)
