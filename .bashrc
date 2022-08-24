@@ -63,7 +63,6 @@ source <(flutter bash-completion)
 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
-export TERM=xterm-256color-italic
 
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #  tmux attach -t default || tmux new -s default
