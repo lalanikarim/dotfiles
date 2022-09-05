@@ -1,5 +1,5 @@
 #
-# ~/.bashrc
+# $HOME/.bashrc
 #
 
 # If not running interactively, don't do anything
@@ -25,15 +25,15 @@ export PATH="$PATH":"$HOME/elixir/bin"
 #alias largefiles="ls -lah | grep \"[0-9]G\""
 alias largefiles='ls -lah | grep "[0-9]G"'
 alias largefolders='du . -h -d 1 | grep "[0-9]G"'
-#alias vim='~/Apps/nvim.appimage' # -u ~/.config/nvim-nightly/init.vim'
-alias nvim='~/Apps/nvim.appimage'
+#alias vim='$HOME/Apps/nvim.appimage' # -u $HOME/.config/nvim-nightly/init.vim'
+alias nvim='$HOME/Apps/nvim.appimage'
 alias vim='nvim'
 #alias tmuxattach='tmux attach || tmux'
 alias tmuxattach='tmux attach -t default || tmux new -s default'
 alias email="tmux rename-window email && mutt -e \"push '<f10>'\""
 alias calendar="tmux rename-window calendar && khal interactive"
 alias docker-compose=podman-compose
-export EDITOR=~/Apps/nvim.appimage
+export EDITOR=$HOME/Apps/nvim.appimage
 
 eval "$(starship init bash)"
 
@@ -42,21 +42,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #[ -d "`npm -g bin`" ] && export PATH=`npm -g bin`:"$PATH"
 
-. ~/.cargo/env
+. $HOME/.cargo/env
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
 #export PATH="$HOME/.cargo/bin:$PATH"
 
-[ -d ~/emsdk ] && . ~/emsdk/emsdk_env.sh
+[ -d $HOME/emsdk ] && . $HOME/emsdk/emsdk_env.sh
 
 # tabtab source for packages
 # uninstall by removing these lines
-#[ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true
+#[ -f $HOME/.config/tabtab/__tabtab.bash ] && . $HOME/.config/tabtab/__tabtab.bash || true
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 
-[ -f ~/.local/bin/az.completion.sh ] && . ~/.local/bin/az.completion.sh || true
+[ -f $HOME/.local/bin/az.completion.sh ] && . $HOME/.local/bin/az.completion.sh || true
 
-export KUBECONFIG=~/.kube/config
+export KUBECONFIG=$HOME/.kube/config
 source <(kubectl completion bash)
 source <(helm completion bash)
 source <(flutter bash-completion)
@@ -68,4 +68,4 @@ export PATH=$PATH:$HOME/dotnet
 #  tmux attach -t default || tmux new -s default
 #fi
 
-[ -f ~/.local/bin/yq ] && source <(yq shell-completion bash)
+[ -f $HOME/.local/bin/yq ] && source <(yq shell-completion bash)
