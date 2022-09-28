@@ -69,3 +69,6 @@ export PATH=$PATH:$HOME/dotnet
 #fi
 
 [ -f $HOME/.local/bin/yq ] && source <(yq shell-completion bash)
+
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+flutter config --android-studio-dir=$(ls -d $HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/* | grep "[0-9]\+$" | sort | tail -n 1)
