@@ -71,4 +71,6 @@ export PATH=$PATH:$HOME/dotnet
 [ -f $HOME/.local/bin/yq ] && source <(yq shell-completion bash)
 
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-flutter config --android-studio-dir=$(ls -d $HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/* | grep "[0-9]\+$" | sort | tail -n 1)
+export ANDROID_STUDIO_DIR=$(ls -d $HOME/.local/share/JetBrains/Toolbox/apps/AndroidStudio/ch-0/* | grep "[0-9]\+$" | sort | tail -n 1)
+# Run the below if `flutter doctor` is unable to find installed Android Studio
+# flutter config --android-studio-dir=$ANDROID_STUDIO_DIR
