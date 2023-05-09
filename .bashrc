@@ -51,7 +51,7 @@ alias docker-compose=podman-compose
 
 [[ -f $HOME/.local/bin/starship ]] && eval "$(starship init bash)"
 
-if [ -d $HOME/.nvim ]
+if [ -d $HOME/.nvm ]
 then
   export NVM_DIR="$HOME/.nvm"
   [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -92,3 +92,4 @@ then
 # Run the below if `flutter doctor` is unable to find installed Android Studio
 # flutter config --android-studio-dir=$ANDROID_STUDIO_DIR
 fi
+export BROWSER=/usr/bin/firefox
