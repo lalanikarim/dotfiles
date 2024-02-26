@@ -22,10 +22,10 @@ fi
 [[ -d $HOME/go/bin ]] && export PATH="$PATH":"$HOME/go/bin"
 [[ -d $HOME/.yarn/bin ]] && export PATH="$PATH":"$HOME/.yarn/bin"
 
-if [ -d $HOME/dotnet ]
+if [ -d $HOME/.dotnet ]
 then 
-  export PATH="$PATH":"$HOME/dotnet"
-  export DOTNET_ROOT=$HOME/dotnet
+  export PATH="$PATH":"$HOME/.dotnet"
+  export DOTNET_ROOT=$HOME/.dotnet
 fi
 
 [[ -d $HOME/.dotnet/tools ]] && export PATH="$PATH":"$HOME/.dotnet/tools"
@@ -93,3 +93,7 @@ then
 # flutter config --android-studio-dir=$ANDROID_STUDIO_DIR
 fi
 export BROWSER=/usr/bin/firefox
+export MODULAR_HOME="/home/karim/.modular"
+export PATH="/home/karim/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+
+clear
