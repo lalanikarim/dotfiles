@@ -47,9 +47,11 @@ fi
 alias tmuxattach='tmux attach -t default || tmux new -s default'
 alias email="tmux rename-window email && mutt -e \"push '<f10>'\""
 alias calendar="tmux rename-window calendar && khal interactive"
+alias docker=podman
 alias docker-compose=podman-compose
 
 [[ -f $HOME/.local/bin/starship ]] && eval "$(starship init bash)"
+[[ -f $HOME/.cargo/bin/starship ]] && eval "$(starship init bash)"
 
 if [ -d $HOME/.nvm ]
 then
@@ -97,3 +99,4 @@ export MODULAR_HOME="/home/karim/.modular"
 export PATH="/home/karim/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 
 clear
+. "$HOME/.cargo/env"
