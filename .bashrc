@@ -2,6 +2,8 @@
 # $HOME/.bashrc
 #
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias ls='ls --color=auto'
@@ -21,6 +23,7 @@ fi
 [[ -d $HOME/.local/bin ]] && export PATH="$PATH":"$HOME/.local/bin"
 [[ -d $HOME/go/bin ]] && export PATH="$PATH":"$HOME/go/bin"
 [[ -d $HOME/.yarn/bin ]] && export PATH="$PATH":"$HOME/.yarn/bin"
+[[ -d /opt/homebrew/bin ]] && export PATH="$PATH":"/opt/homebrew/bin"
 
 if [ -d $HOME/.dotnet ]
 then 
@@ -43,6 +46,14 @@ then
   alias vim='nvim'
   export EDITOR=$HOME/Apps/nvim.appimage
 fi
+
+if [ -f /opt/homebrew/bin/nvim ] 
+then 
+  alias nvim='/opt/homebrew/bin/nvim'
+  alias vim='nvim'
+  export EDITOR=/opt/homebrew/bin/nvim
+fi
+
 #alias tmuxattach='tmux attach || tmux'
 alias tmuxattach='tmux attach -t default || tmux new -s default'
 alias email="tmux rename-window email && mutt -e \"push '<f10>'\""

@@ -1,0 +1,31 @@
+[font]
+size = 17.0
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "VictorMono Nerd Font Mono"
+style = "Regular"
+
+[shell]
+program = "/bin/bash"
+
+[window]
+dynamic_title = true
+title = "Alacritty"
+opacity = 0.95
+
+[window.dimensions]
+columns = 200
+lines = 50
+
+[window.padding]
+x = 10
+y = 10
