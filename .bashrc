@@ -109,5 +109,8 @@ export BROWSER=/usr/bin/firefox
 export MODULAR_HOME="/home/karim/.modular"
 export PATH="/home/karim/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export SURREAL_PATH="file:$HOME/surrealdb"
-clear
+
+eval "$(devbox global shellenv --init-hook)"
+
 . "$HOME/.cargo/env"
+clear

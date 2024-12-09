@@ -20,3 +20,4 @@ export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 . "$HOME/.cargo/env"
 
 if [ -e /home/karim/.nix-profile/etc/profile.d/nix.sh ]; then . /home/karim/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export OLLAMA_HOST=aurora
