@@ -58,8 +58,16 @@ fi
 alias tmuxattach='tmux attach -t default || tmux new -s default'
 alias email="tmux rename-window email && mutt -e \"push '<f10>'\""
 alias calendar="tmux rename-window calendar && khal interactive"
-alias docker=podman
-alias docker-compose=podman-compose
+
+if command -v podman >/dev/null 2>&1
+then
+  alias docker=podman
+fi
+
+if command -v podman-compose >/dev/null 2>&1
+then
+  alias docker-compose=podman-compose
+fi
 
 [[ -f $HOME/.local/bin/starship ]] && eval "$(starship init bash)"
 [[ -f $HOME/.cargo/bin/starship ]] && eval "$(starship init bash)"
@@ -110,7 +118,8 @@ export MODULAR_HOME="/home/karim/.modular"
 export PATH="/home/karim/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export SURREAL_PATH="file:$HOME/surrealdb"
 
-eval "$(devbox global shellenv --init-hook)"
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
 
-. "$HOME/.cargo/env"
 clear
