@@ -34,6 +34,12 @@ fi
 [[ -d $HOME/.dotnet/tools ]] && export PATH="$PATH":"$HOME/.dotnet/tools"
 [[ -d $HOME/.local/share/coursier/bin ]] && export PATH="$PATH":"$HOME/.local/share/coursier/bin"
 [[ -d $HOME/elixir/bin ]] && export PATH="$PATH":"$HOME/elixir/bin"
+
+if [ -d $HOME/.elixir-install ]
+then
+  export PATH=$HOME/.elixir-install/installs/otp/27.2.3/bin:$PATH
+  export PATH=$HOME/.elixir-install/installs/elixir/1.18.3-otp-27/bin:$PATH
+fi
 #alias largefolders="du . -h -d 1 | grep \"[0-9]G\""
 #alias largefiles="ls -lah | grep \"[0-9]G\""
 alias largefiles='ls -lah | grep "[0-9]G"'
@@ -121,5 +127,7 @@ export SURREAL_PATH="file:$HOME/surrealdb"
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
+
+[[ -f $HOME/git-completion.bash ]] && source $HOME/git-completion.bash
 
 clear
