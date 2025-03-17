@@ -90,7 +90,7 @@ fi
 [[ -d $(rustc --print sysroot) ]] && export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
 #export PATH="$HOME/.cargo/bin:$PATH"
 
-[ -d $HOME/emsdk ] && source $HOME/emsdk/emsdk_env.sh
+# [ -d $HOME/emsdk ] && source $HOME/emsdk/emsdk_env.sh
 
 # tabtab source for packages
 # uninstall by removing these lines
